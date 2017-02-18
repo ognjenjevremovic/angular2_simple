@@ -1,0 +1,30 @@
+{
+  "name": "angular2_simple_app",
+  "version": "0.0.1",
+  "description": "A Simple Angular 2 application, demostrating the capabilities and amazingness of Angular's 2 Modules,Components,Directives,Pipes,Services and many more",
+  "scripts": {
+    "start": "tsc && concurrently \"tsc -w\" \"lite-server\"",
+    "postinstall": "typings install"
+  },
+  "author": "Ognjen Jevremovic",
+  "license": "MIT",
+  "dependencies": {
+    "@angular/common": "^2.4.7",
+    "@angular/compiler": "^2.4.7",
+    "@angular/core": "^2.4.7",
+    "@angular/forms": "^2.4.7",
+    "@angular/http": "^2.4.7",
+    "@angular/platform-browser": "^2.4.7",
+    "@angular/platform-browser-dynamic": "^2.4.7",
+    "@angular/router": "^3.4.7",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.9",
+    "rxjs": "^5.1.1",
+    "systemjs": "^0.20.9",
+    "zone.js": "^0.7.7"
+  },
+  "devDependencies": {
+    "concurrently": "^3.3.0",
+    "lite-server": "^2.2.2"
+  }
+}

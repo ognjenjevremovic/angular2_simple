@@ -1,2 +1,2 @@
 # angular2_simple
-Simple Angular 2 application
+A Simple Angular 2 application, demostrating the capabilities and amazingness of Angular's 2 Modules,Components,Directives,Pipes,Services and many more...
