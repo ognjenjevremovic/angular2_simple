@@ -1,0 +1,130 @@
+<!-- Header -->
+<header id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-10">
+                <h1>
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    Users <small>All Users</small>
+                </h1>
+            </div>
+            <div class="col-xs-2">
+                <div class="dropdown create">
+                    <button class="btn btn-default" type="button" id="dropdownMenu">
+                        Add new user
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- User list -->
+<section id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                
+                <!-- Panel -->
+                <div class="panel panel-default">
+                    <!-- Panel Heading -->
+                    <div class="panel-heading main-color-bg">
+                        <h1 class="panel-title text-center">
+                            <strong>Users</strong>
+                        </h1>
+                    </div>
+                    <!-- Panel Body -->
+                    <div class="panel-body">
+
+                        <!-- Main info -->
+                        <div class="row">
+                            <!-- Avatar -->
+                            <div class="col-xs-4 col-xs-push-1 avatar">
+                                <i class="glyphicon glyphicon-user"></i>
+                            </div>
+                            <!-- User details -->
+                            <div class="col-xs-6 col-xs-push-1">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <strong class="text-primary">Name : </strong>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <span>User name</span>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <strong class="text-primary">E-mail : </strong>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <span>User name</span>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <strong class="text-primary">Location : </strong>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <span>User name</span>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <strong class="text-primary">Date joined : </strong>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <span>User name</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <!-- User bio -->
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-push-1 lead">
+                                <p class="text-center text-primary">
+                                    <strong>Bio : </strong>
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta fugiat doloribus officia deleniti, unde ipsa facere, deserunt, quas modi officiis hic. Maxime aspernatur commodi ratione harum, minima quod quam laborum?
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Delete user modal -->
+<div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title text-center text-danger">
+                    <strong>Delete user</strong>
+                </h3>
+                </div>
+            <div class="modal-body">
+                <h4 class="text-center text-danger">
+                    Are you sure you want to delete the user - <em>sample user</em>?
+                    <br>
+                    This action is permanent.
+                </h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-lg btn-danger">Delete</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

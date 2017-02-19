@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 
+import { UserService } from './user.service';
+
 @NgModule({
-    providers: []
+    providers: [
+        UserService
+    ]
 })
 export class CoreServicesModule { }
