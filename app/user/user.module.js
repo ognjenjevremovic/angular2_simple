@@ -6,18 +6,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var user_service_1 = require("./user.service");
-var CoreServicesModule = (function () {
-    function CoreServicesModule() {
+var user_list_component_1 = require("./user-list.component");
+var user_details_component_1 = require("./user-details.component");
+var UserModule = (function () {
+    function UserModule() {
     }
-    return CoreServicesModule;
+    return UserModule;
 }());
-CoreServicesModule = __decorate([
+UserModule = __decorate([
     core_1.NgModule({
-        providers: [
-            user_service_1.UserService
-        ]
+        imports: [],
+        declarations: [
+            user_list_component_1.UserListComponent,
+            user_details_component_1.UserDetailsComponent
+        ],
+        providers: []
     })
-], CoreServicesModule);
-exports.CoreServicesModule = CoreServicesModule;
-//# sourceMappingURL=core.module.js.map
+], UserModule);
+exports.UserModule = UserModule;
+//# sourceMappingURL=user.module.js.map
