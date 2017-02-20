@@ -20,7 +20,7 @@
 </header>
 
 <!-- User list -->
-<section id="main">
+<section id="main" *ngIf="user">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -39,44 +39,44 @@
                         <!-- Main info -->
                         <div class="row">
                             <!-- Avatar -->
-                            <div class="col-xs-4 col-xs-push-1 avatar">
-                                <i class="glyphicon glyphicon-user"></i>
+                            <div class="col-xs-4 col-xs-push-1">
+                                <img [src]="user.avatar" class="avatar" [alt]="user.avatar">
                             </div>
                             <!-- User details -->
                             <div class="col-xs-6 col-xs-push-1">
                                 <div class="row">
-                                    <div class="col-xs-6">
-                                        <strong class="text-primary">Name : </strong>
+                                    <div class="col-xs-4">
+                                        <strong class="text-primary">Name:</strong>
                                     </div>
-                                    <div class="col-xs-6">
-                                        <span>User name</span>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <strong class="text-primary">E-mail : </strong>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <span>User name</span>
+                                    <div class="col-xs-8">
+                                        <span>{{ user.name.first }} {{ user.name.last }}</span>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <div class="col-xs-6">
-                                        <strong class="text-primary">Location : </strong>
+                                    <div class="col-xs-4">
+                                        <strong class="text-primary">E-mail:</strong>
                                     </div>
-                                    <div class="col-xs-6">
-                                        <span>User name</span>
+                                    <div class="col-xs-8">
+                                        <span>{{ user.email }}</span>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <div class="col-xs-6">
-                                        <strong class="text-primary">Date joined : </strong>
+                                    <div class="col-xs-4">
+                                        <strong class="text-primary">Location:</strong>
                                     </div>
-                                    <div class="col-xs-6">
-                                        <span>User name</span>
+                                    <div class="col-xs-8">
+                                        <span>{{ user.location.city }} {{ user.location.state }}</span>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <strong class="text-primary">Joined:</strong>
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <span>{{ user.date_joined }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@
                                     <strong>Bio : </strong>
                                 </p>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta fugiat doloribus officia deleniti, unde ipsa facere, deserunt, quas modi officiis hic. Maxime aspernatur commodi ratione harum, minima quod quam laborum?
+                                    {{ user.bio }}
                                 </p>
                             </div>
                         </div>

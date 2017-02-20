@@ -6,17 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var UserFilterPipe = (function () {
+    function UserFilterPipe() {
     }
-    return AppComponent;
+    UserFilterPipe.prototype.transform = function (users, filterByName) {
+        filterByName = filterByName ? filterByName.toLocaleLowerCase() : null;
+        return filterByName ? users.filter(function (user) { return user.name.first.toLocaleLowerCase().includes(filterByName) || user.name.last.toLocaleLowerCase().includes(filterByName); }) : users;
+    };
+    return UserFilterPipe;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'ua-app',
-        templateUrl: 'app.component.html'
+UserFilterPipe = __decorate([
+    core_1.Pipe({
+        name: 'filterByName'
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], UserFilterPipe);
+exports.UserFilterPipe = UserFilterPipe;
+//# sourceMappingURL=user-filter.pipe.js.map

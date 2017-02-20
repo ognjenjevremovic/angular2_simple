@@ -14,15 +14,16 @@
     <div class="collapse navbar-collapse" id="navigationMenu">
         <ul class="nav navbar-nav text-center">
             <li>
-                <a href="#">
+                <a [routerLink]="['/home']">
                     <strong>Home</strong>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a [routerLink]="['/users']">
                     <strong>Users</strong>
                 </a>
             </li>
         </ul>
     </div>
 </nav>
+<router-outlet></router-outlet>

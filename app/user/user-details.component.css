@@ -1,9 +1,10 @@
 .avatar {
-    font-size: 12rem;
-    padding-top: 3rem;
-    text-align: center;
-    border: 1px solid #ffbbbc;
+    width: 100%;
+    max-width: 20rem;
+    max-height: 20rem;
+    margin: 1rem auto 0;
 }
+
 .lead {
     font-size: 1.65rem;
 }

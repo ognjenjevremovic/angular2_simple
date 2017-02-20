@@ -6,25 +6,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var forms_1 = require("@angular/forms");
-var http_1 = require("@angular/http");
-var SharedModule = (function () {
-    function SharedModule() {
+var router_1 = require("@angular/router");
+var home_component_1 = require("./home/home.component");
+var AppRoutingModule = (function () {
+    function AppRoutingModule() {
     }
-    return SharedModule;
+    return AppRoutingModule;
 }());
-SharedModule = __decorate([
+AppRoutingModule = __decorate([
     core_1.NgModule({
         imports: [
-            forms_1.FormsModule,
-            http_1.HttpModule
+            router_1.RouterModule.forRoot([
+                { path: 'home', component: home_component_1.HomeComponent },
+                { path: '', redirectTo: 'home', pathMatch: 'full' },
+                { path: '**', redirectTo: 'home', pathMatch: 'full' }
+            ])
         ],
-        declarations: [],
         exports: [
-            forms_1.FormsModule,
-            http_1.HttpModule
+            router_1.RouterModule
         ]
     })
-], SharedModule);
-exports.SharedModule = SharedModule;
-//# sourceMappingURL=shared.module.js.map
+], AppRoutingModule);
+exports.AppRoutingModule = AppRoutingModule;
+//# sourceMappingURL=app-routing.module.js.map

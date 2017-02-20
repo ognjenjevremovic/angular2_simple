@@ -6,30 +6,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var common_1 = require("@angular/common");
-var user_routing_module_1 = require("./user-routing.module");
-var shared_module_1 = require("../shared/shared.module");
+var router_1 = require("@angular/router");
 var user_list_component_1 = require("./user-list.component");
 var user_details_component_1 = require("./user-details.component");
-var user_filter_pipe_1 = require("./user-filter.pipe");
-var UserModule = (function () {
-    function UserModule() {
+var UserRoutingModule = (function () {
+    function UserRoutingModule() {
     }
-    return UserModule;
+    return UserRoutingModule;
 }());
-UserModule = __decorate([
+UserRoutingModule = __decorate([
     core_1.NgModule({
         imports: [
-            common_1.CommonModule,
-            user_routing_module_1.UserRoutingModule,
-            shared_module_1.SharedModule
+            router_1.RouterModule.forChild([
+                { path: 'users', component: user_list_component_1.UserListComponent },
+                { path: 'user/:id', component: user_details_component_1.UserDetailsComponent }
+            ])
         ],
-        declarations: [
-            user_list_component_1.UserListComponent,
-            user_details_component_1.UserDetailsComponent,
-            user_filter_pipe_1.UserFilterPipe
+        exports: [
+            router_1.RouterModule
         ]
     })
-], UserModule);
-exports.UserModule = UserModule;
-//# sourceMappingURL=user.module.js.map
+], UserRoutingModule);
+exports.UserRoutingModule = UserRoutingModule;
+//# sourceMappingURL=user-routing.module.js.map
