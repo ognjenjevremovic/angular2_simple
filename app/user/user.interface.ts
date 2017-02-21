@@ -1,5 +1,5 @@
 export interface IUser {
-    id: number;
+    _id: string;
     name: {
         first: string;
         last: string;
@@ -11,5 +11,5 @@ export interface IUser {
     };
     date_joined: string;
     bio: string;
-    avatar: string
+    avatar: string;
 }

@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { UserListComponent } from './user-list.component';
 import { UserDetailsComponent } from './user-details.component';
+import { AddUserComponent } from './user-add.component';
 import { UserFilterPipe } from './user-filter.pipe';
 
 @NgModule({
@@ -16,7 +17,8 @@ import { UserFilterPipe } from './user-filter.pipe';
     declarations: [
         UserListComponent,
         UserDetailsComponent,
-        UserFilterPipe
+        UserFilterPipe,
+        AddUserComponent
     ]
 })
 export class UserModule { }

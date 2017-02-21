@@ -15,9 +15,21 @@ var UserListComponent = (function () {
         this._userService = _userService;
     }
     UserListComponent.prototype.ngOnInit = function () {
+        this.getUsers();
+    };
+    UserListComponent.prototype.getUsers = function () {
         var _this = this;
         this._userService.getUsers()
             .subscribe(function (users) { return _this.users = users; }, function (error) { return _this.errorMessage = error; });
+    };
+    UserListComponent.prototype.removeUser = function (event, userId) {
+        var _this = this;
+        event.stopPropagation();
+        this._userService.removeUserById(userId)
+            .subscribe(function (user) {
+            var userIndex = _this.users.findIndex(function (user) { return user._id === userId; });
+            _this.users.splice(userIndex, 1);
+        }, function (error) { return console.log("Error occured!"); });
     };
     return UserListComponent;
 }());

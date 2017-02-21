@@ -11,6 +11,7 @@ var user_routing_module_1 = require("./user-routing.module");
 var shared_module_1 = require("../shared/shared.module");
 var user_list_component_1 = require("./user-list.component");
 var user_details_component_1 = require("./user-details.component");
+var user_add_component_1 = require("./user-add.component");
 var user_filter_pipe_1 = require("./user-filter.pipe");
 var UserModule = (function () {
     function UserModule() {
@@ -27,7 +28,8 @@ UserModule = __decorate([
         declarations: [
             user_list_component_1.UserListComponent,
             user_details_component_1.UserDetailsComponent,
-            user_filter_pipe_1.UserFilterPipe
+            user_filter_pipe_1.UserFilterPipe,
+            user_add_component_1.AddUserComponent
         ]
     })
 ], UserModule);

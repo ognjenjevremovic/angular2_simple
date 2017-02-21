@@ -10,7 +10,7 @@
             </div>
             <div class="col-md-2">
                 <div class="dropdown create">
-                    <button class="btn btn-default" type="button" id="dropdownMenu">
+                    <button class="btn btn-default" type="button" [routerLink]="['/adduser']">
                         Add new user
                     </button>
                 </div>
@@ -53,13 +53,13 @@
                             </thead>
                             <!-- Table Body -->
                             <tbody>
-                                <tr *ngFor="let user of users | filterByName: nameFilter" [routerLink]="['/user', user.id]">
+                                <tr *ngFor="let user of users | filterByName: nameFilter" [routerLink]="['/user', user._id]">
                                     <td>{{ user.name.first }} {{ user.name.last }}</td>
                                     <td>{{ user.email }}</td>
                                     <td>{{ user.location.city }}, {{ user.location.state }}</td>
                                     <td>{{ user.date_joined }}</td>
                                     <td>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUserModal">
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUserModal" (click)="removeUser($event, user._id)">
                                             <strong><i class="glyphicon glyphicon-remove"></i></strong>
                                         </button>
                                     </td>
@@ -74,8 +74,8 @@
     </div>
 </section>
 
-<!-- Delete user modal -->
-<div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserLabel">
+ <!--Delete user modal -->
+<!--<div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -95,8 +95,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-lg btn-danger">Delete</button>
+                <button type="button" class="btn btn-lg btn-danger" (click)="removeUser()">Delete</button>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>-->

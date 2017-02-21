@@ -20,7 +20,7 @@ export class UserDetailsComponent implements OnInit{
     ) { }
 
     ngOnInit(): void {
-        let userId: number = +this._route.snapshot.params['id'];
+        let userId: string = this._route.snapshot.params['id'];
         this._userService.getUserById(userId).subscribe(
             (user: IUser) => this.user = user
         );

@@ -9,6 +9,7 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var user_list_component_1 = require("./user-list.component");
 var user_details_component_1 = require("./user-details.component");
+var user_add_component_1 = require("./user-add.component");
 var UserRoutingModule = (function () {
     function UserRoutingModule() {
     }
@@ -18,6 +19,7 @@ UserRoutingModule = __decorate([
     core_1.NgModule({
         imports: [
             router_1.RouterModule.forChild([
+                { path: 'adduser', component: user_add_component_1.AddUserComponent },
                 { path: 'users', component: user_list_component_1.UserListComponent },
                 { path: 'user/:id', component: user_details_component_1.UserDetailsComponent }
             ])

@@ -17,19 +17,34 @@ require("rxjs/add/operator/catch");
 var UserService = (function () {
     function UserService(_http) {
         this._http = _http;
-        this._endpoint = '/api/sample-users.json';
+        this._usersEndpoint = 'http://localhost:4000/api/users';
+        this._userEndpoint = 'http://localhost:4000/api/user';
     }
     UserService.prototype.getUsers = function () {
         var _this = this;
-        return this._http.get(this._endpoint)
-            .map(function (response) { return response.json(); })
+        return this._http.get(this._usersEndpoint)
+            .map(function (data) { return data.json().users; })
             .do(function (users) { return _this._users = users; })
             .catch(this.handleError);
     };
     UserService.prototype.getUserById = function (userId) {
-        var _this = this;
         return this.getUsers()
-            .map(function (users) { return _this._users.find(function (user) { return user.id === userId; }); });
+            .map(function (users) { return users.find(function (user) { return user._id === userId; }); });
+    };
+    UserService.prototype.removeUserById = function (userId) {
+        return this._http.delete(this._userEndpoint + "/" + userId)
+            .map(function (data) { return data.json().user; })
+            .do(function (user) { return user; })
+            .catch(this.handleError);
+    };
+    UserService.prototype.addUser = function (newUser) {
+        return this._http.post("" + this._userEndpoint, newUser)
+            .map(function (data) { return data.json().user; })
+            .do(function (user) {
+            console.log(user);
+            return user;
+        })
+            .catch(this.handleError);
     };
     UserService.prototype.handleError = function (error) {
         return observable_1.Observable.throw(error.json().error || 'Server error');

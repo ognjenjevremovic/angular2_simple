@@ -10,24 +10,45 @@ import { IUser } from '../user/user.interface';
 
 @Injectable()
 export class UserService {
-    private _endpoint: string = '/api/sample-users.json';
+    private _usersEndpoint: string = 'http://localhost:4000/api/users';
+    private _userEndpoint: string = 'http://localhost:4000/api/user';
     private _users: IUser[];
 
-    constructor(private _http: Http) { }
+    constructor(
+        private _http: Http,
+    ) { }
 
-    getUsers(): Observable<IUser[]>{
-        return this._http.get(this._endpoint)
-                .map((response: Response) => response.json() as IUser[])
-                .do((users: IUser[]) => this._users = users)
-                .catch(this.handleError);
+    getUsers(): Observable<IUser[]> {
+        return this._http.get(this._usersEndpoint)
+            .map((data: Response) => data.json().users as IUser[])
+            .do((users: IUser[]) => this._users = users)
+            .catch(this.handleError);
     }
-    getUserById(userId: number): Observable<IUser> {
+
+    getUserById(userId: string): Observable<IUser> {
         return this.getUsers()
             .map(
-                (users: IUser[]) => this._users.find(
-                    (user: IUser) => user.id === userId
+                (users: IUser[]): IUser => users.find(
+                    (user: IUser): boolean => user._id === userId
                 )
             );
+    }
+
+    removeUserById(userId: string): Observable<IUser> {
+        return this._http.delete(`${this._userEndpoint}/${userId}`)
+            .map((data: Response) => data.json().user)
+            .do((user: IUser) => user)
+            .catch(this.handleError);
+    }
+
+    addUser(newUser: IUser): Observable<IUser> {
+        return this._http.post(`${this._userEndpoint}`, newUser)
+            .map((data: Response) => data.json().user)
+            .do((user: IUser) => {
+                console.log(user);
+                return user;
+            })
+            .catch(this.handleError);
     }
 
     private handleError(error: Response) {

@@ -1,0 +1,98 @@
+<!-- Header -->
+<header id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <h1>
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    Add new user
+                </h1>
+            </div>
+            <div class="col-xs-2">
+                <div class="dropdown create">
+                    <button class="btn btn-default" type="button" [routerLink]="['/users']">
+                        See all users
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                
+                <!-- Panel -->
+                <div class="panel panel-default">
+                    <!-- Panel Heading -->
+                    <div class="panel-heading main-color-bg">
+                        <h1 class="panel-title text-center">
+                            <strong>Add user</strong>
+                        </h1>
+                    </div>
+
+                    <!-- Panel Body -->
+                    <div class="panel-body">
+                        <!-- Main info -->
+                        <div class="row">
+                            <form class="col-xs-10 col-xs-push-1" (submit)="addUser()">
+                                <div class="form-group">
+                                    <label for="userAvatar">
+                                        Avatar link :
+                                    </label>
+                                    <input type="text" id="userAvatar" class="form-control input-lg" name="userAvatar" [(ngModel)]="user.avatar">
+                                </div>
+                                <div class="form-group">
+                                    <label for="userFirstName">
+                                        First name :
+                                    </label>
+                                    <input type="text" id="userFirstName" class="form-control input-lg" name="userFirstName" [(ngModel)]="user.name.first">
+                                </div>
+                                <div class="form-group">
+                                    <label for="userLastName">
+                                        Last Name :
+                                    </label>
+                                    <input type="text" id="userLastName" class="form-control input-lg" name="userLastName" [(ngModel)]="user.name.last">
+                                </div>
+                                <div class="form-group">
+                                    <label for="userEmail">
+                                        E-mail :
+                                    </label>
+                                    <input type="text" id="userEmail" class="form-control input-lg" name="userEmail" [(ngModel)]="user.email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="userLocationState">
+                                        State :
+                                    </label>
+                                    <input type="text" id="userLocationState" class="form-control input-lg" name="userLocationState" [(ngModel)]="user.location.state">
+                                </div>
+                                <div class="form-group">
+                                    <label for="userLocationCity">
+                                        City :
+                                    </label>
+                                    <input type="text" id="userLocationCity" class="form-control input-lg" name="userLocationCity" [(ngModel)]="user.location.city">
+                                </div>
+                                <div class="form-group">
+                                    <label for="userBio">
+                                        Bio :
+                                    </label>
+                                    <textarea id="userBio" rows="6" class="form-control input-lg" name="userBio" [(ngModel)]="user.bio"></textarea>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-xs-4 col-xs-push-4">
+                                        <input type="submit" class="col-xs-12 btn btn-success btn-lg" value="Add user">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

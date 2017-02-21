@@ -18,7 +18,7 @@ var UserDetailsComponent = (function () {
     }
     UserDetailsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var userId = +this._route.snapshot.params['id'];
+        var userId = this._route.snapshot.params['id'];
         this._userService.getUserById(userId).subscribe(function (user) { return _this.user = user; });
     };
     return UserDetailsComponent;
