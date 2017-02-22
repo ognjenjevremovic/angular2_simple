@@ -10,37 +10,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var user_service_1 = require("../core/user.service");
-var UserListComponent = (function () {
-    function UserListComponent(_userService) {
+var UserModalComponent = (function () {
+    function UserModalComponent(_userService) {
         this._userService = _userService;
+        this.userDeleted = new core_1.EventEmitter();
     }
-    UserListComponent.prototype.ngOnInit = function () {
-        this.getUsers();
-    };
-    UserListComponent.prototype.getUsers = function () {
+    UserModalComponent.prototype.removeUser = function () {
         var _this = this;
-        this._userService.getUsers()
-            .subscribe(function (users) {
-            _this.users = users;
-            _this.userSelected = _this.users[0];
-        }, function (error) { return _this.errorMessage = error; });
+        this._userService.removeUserById(this.user._id)
+            .subscribe(function (data) { return _this.userDeleted.emit(); });
     };
-    UserListComponent.prototype.showModal = function (event, user) {
-        event.stopPropagation();
-        this.userSelected = user;
-        $('#deleteUserModal').modal({
-            show: true
-        });
-    };
-    return UserListComponent;
+    return UserModalComponent;
 }());
-UserListComponent = __decorate([
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], UserModalComponent.prototype, "user", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], UserModalComponent.prototype, "userDeleted", void 0);
+UserModalComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        templateUrl: 'user-list.component.html',
-        styleUrls: ['user-list.component.css']
+        templateUrl: 'user-modal.component.html',
+        selector: 'ua-user-modal'
     }),
     __metadata("design:paramtypes", [user_service_1.UserService])
-], UserListComponent);
-exports.UserListComponent = UserListComponent;
-//# sourceMappingURL=user-list.component.js.map
+], UserModalComponent);
+exports.UserModalComponent = UserModalComponent;
+//# sourceMappingURL=user-modal.component.js.map

@@ -39,7 +39,6 @@ export class AddUserComponent implements OnInit {
         this._userService.addUser(this.user)
             .subscribe(
                 (user: IUser) => {
-                    console.log(`User with an id of ${user._id} added`);
                     this._router.navigate(['/users']);
                 }
             );

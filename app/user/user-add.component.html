@@ -1,31 +1,17 @@
 <!-- Header -->
-<header id="header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9">
-                <h1>
-                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                    Add new user
-                </h1>
-            </div>
-            <div class="col-xs-3">
-                <div class="dropdown create">
-                    <button class="btn btn-default" type="button" [routerLink]="['/users']">
-                        See all users
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+<ua-user-header
+    [title]="'Add new user'"
+    [buttonText]="'See all users'"
+    [buttonNavigateTo]="'/users'"></ua-user-header>
 
+<!-- Add user form -->
 <section id="main">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                
                 <!-- Panel -->
                 <div class="panel panel-default">
+
                     <!-- Panel Heading -->
                     <div class="panel-heading main-color-bg">
                         <h1 class="panel-title text-center">
@@ -90,8 +76,8 @@
                         </div>
                         <hr>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
     </div>

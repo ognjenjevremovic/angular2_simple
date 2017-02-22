@@ -31,7 +31,6 @@ export class UserDetailsComponent implements OnInit{
         this._userService.removeUserById(this.user._id)
             .subscribe(
                 (data) => {
-                    console.log(data);
                     this._router.navigate(['/users']);
                 }
             );

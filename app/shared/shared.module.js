@@ -6,8 +6,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
+var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
+var router_1 = require("@angular/router");
+var user_header_component_1 = require("./user-header.component");
+var user_modal_component_1 = require("./user-modal.component");
 var SharedModule = (function () {
     function SharedModule() {
     }
@@ -17,12 +21,20 @@ SharedModule = __decorate([
     core_1.NgModule({
         imports: [
             forms_1.FormsModule,
-            http_1.HttpModule
+            http_1.HttpModule,
+            common_1.CommonModule,
+            router_1.RouterModule
         ],
-        declarations: [],
+        declarations: [
+            user_header_component_1.UserHeaderComponent,
+            user_modal_component_1.UserModalComponent
+        ],
         exports: [
             forms_1.FormsModule,
-            http_1.HttpModule
+            http_1.HttpModule,
+            common_1.CommonModule,
+            user_header_component_1.UserHeaderComponent,
+            user_modal_component_1.UserModalComponent
         ]
     })
 ], SharedModule);

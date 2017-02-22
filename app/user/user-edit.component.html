@@ -1,23 +1,8 @@
 <!-- Header -->
-<header id="header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10">
-                <h1>
-                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                    Edit user
-                </h1>
-            </div>
-            <div class="col-xs-2">
-                <div class="dropdown create">
-                    <button class="btn btn-default" type="button" [routerLink]="['/users']">
-                        See all users
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+<ua-user-header
+    [title]="'Edit user'"
+    [buttonText]="'See all users'"
+    [buttonNavigateTo]="'/users'"></ua-user-header>
 
 <section id="main" *ngIf="user">
     <div class="container">

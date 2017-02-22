@@ -26,7 +26,6 @@ var UserDetailsComponent = (function () {
         var _this = this;
         this._userService.removeUserById(this.user._id)
             .subscribe(function (data) {
-            console.log(data);
             _this._router.navigate(['/users']);
         });
     };

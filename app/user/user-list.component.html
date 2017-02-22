@@ -1,36 +1,23 @@
 <!-- Header -->
-<header id="header">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-9">
-                <h1>
-                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                    Users <small>All Users</small>
-                </h1>
-            </div>
-            <div class="col-xs-3">
-                <div class="dropdown create">
-                    <button class="btn btn-default" type="button" [routerLink]="['/adduser']">
-                        Add new user
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+<ua-user-header
+    [title]="'Users'"
+    [additionalInfo]="'All Users'"
+    [buttonText]="'Add new user'"
+    [buttonNavigateTo]="'/adduser'"></ua-user-header>
 
 <!-- User list -->
-<section id="main">
+<section id="main" (userDeleted)="getUsers()">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
-                
                 <!-- Panel -->
                 <div class="panel panel-default">
+
                     <!-- Panel Heading -->
                     <div class="panel-heading main-color-bg">
                         <h1 class="panel-title text-center"><strong>Users</strong></h1>
                     </div>
+                    
                     <!-- Panel Body -->
                     <div class="panel-body">
                         <div class="row">
@@ -53,13 +40,13 @@
                             </thead>
                             <!-- Table Body -->
                             <tbody>
-                                <tr *ngFor="let user of users | filterByName: nameFilter" [routerLink]="['/user', user._id]">
+                                <tr *ngFor="let user of users | filterByName: nameFilter" >
                                     <td>{{ user.name.first }} {{ user.name.last }}</td>
                                     <td>{{ user.email }}</td>
                                     <td>{{ user.location.city }}, {{ user.location.state }}</td>
                                     <td>{{ user.date_joined }}</td>
                                     <td>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUserModal" (click)="removeUser($event, user._id)">
+                                        <button type="button" class="btn btn-danger" (click)="showModal($event, user)">
                                             <strong><i class="glyphicon glyphicon-remove"></i></strong>
                                         </button>
                                     </td>
@@ -67,36 +54,15 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
     </div>
 </section>
 
- <!--Delete user modal -->
-<!--<div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h3 class="modal-title text-center text-danger">
-                    <strong>Delete user</strong>
-                </h3>
-                </div>
-            <div class="modal-body">
-                <h4 class="text-center text-danger">
-                    Are you sure you want to delete the user - <em>sample user</em>?
-                    <br>
-                    This action is permanent.
-                </h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-lg btn-danger" (click)="removeUser()">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>-->
+<!-- Delete user modal -->
+<ua-user-modal
+    *ngIf="userSelected"
+    [user]="userSelected">
+</ua-user-modal>

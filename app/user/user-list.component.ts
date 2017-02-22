@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { OnInit } from '@angular/core';
 
 import { IUser } from './user.interface';
@@ -14,6 +14,8 @@ export class UserListComponent implements OnInit {
     errorMessage: string;
     nameFilter: string;
 
+    userSelected: IUser;
+
     constructor(private _userService: UserService) { }
 
     ngOnInit(): void {
@@ -23,23 +25,20 @@ export class UserListComponent implements OnInit {
     getUsers(): void {
         this._userService.getUsers()
             .subscribe(
-                (users: IUser[]) => this.users = users,
+                (users: IUser[]) => {
+                    this.users = users;
+                    this.userSelected = this.users[0];
+                },
                 (error: any) => this.errorMessage = error
             );
     }
 
-    removeUser(event: Event, userId: string): void {
+    showModal(event: Event, user: IUser): void {
         event.stopPropagation();
-
-        this._userService.removeUserById(userId)
-            .subscribe(
-                (user: IUser) => {
-                    let userIndex: number = this.users.findIndex(
-                        (user: IUser) => user._id === userId
-                    );
-                    this.users.splice(userIndex, 1);
-                },
-                (error: any) => console.log(`Error occured!`)
-            );
+        this.userSelected = user;
+        $('#deleteUserModal').modal({
+            show: true
+        });
     }
+
  }

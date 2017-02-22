@@ -6,7 +6,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var common_1 = require("@angular/common");
 var user_routing_module_1 = require("./user-routing.module");
 var shared_module_1 = require("../shared/shared.module");
 var user_list_component_1 = require("./user-list.component");
@@ -22,7 +21,6 @@ var UserModule = (function () {
 UserModule = __decorate([
     core_1.NgModule({
         imports: [
-            common_1.CommonModule,
             user_routing_module_1.UserRoutingModule,
             shared_module_1.SharedModule
         ],

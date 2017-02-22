@@ -40,7 +40,6 @@ var AddUserComponent = (function () {
         var _this = this;
         this._userService.addUser(this.user)
             .subscribe(function (user) {
-            console.log("User with an id of " + user._id + " added");
             _this._router.navigate(['/users']);
         });
     };
