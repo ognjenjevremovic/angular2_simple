@@ -90,7 +90,7 @@
                                 <button type="button" class="btn btn btn-primary col-xs-6" [routerLink]="['/edituser', user._id]">
                                     Edit User
                                 </button>
-                                <button type="button" class="btn btn btn-danger col-xs-6" (click)="removeUser()">
+                                <button type="button" class="btn btn btn-danger col-xs-6" (click)="showModal()">
                                     Delete User
                                 </button>
                             </div>
@@ -102,3 +102,9 @@
         </div>
     </div>
 </section>
+
+<!-- User delete modal -->
+<ua-user-modal
+    [user]="user"
+    (userDeleted)="navigateToUsersList()"
+    ></ua-user-modal>

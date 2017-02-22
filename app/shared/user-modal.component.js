@@ -18,7 +18,7 @@ var UserModalComponent = (function () {
     UserModalComponent.prototype.removeUser = function () {
         var _this = this;
         this._userService.removeUserById(this.user._id)
-            .subscribe(function (data) { return _this.userDeleted.emit(); });
+            .subscribe(function () { return _this.userDeleted.emit(); });
     };
     return UserModalComponent;
 }());

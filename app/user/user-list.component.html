@@ -40,7 +40,7 @@
                             </thead>
                             <!-- Table Body -->
                             <tbody>
-                                <tr *ngFor="let user of users | filterByName: nameFilter" >
+                                <tr *ngFor="let user of users | filterByName: nameFilter" [routerLink]="['/user', user._id]">
                                     <td>{{ user.name.first }} {{ user.name.last }}</td>
                                     <td>{{ user.email }}</td>
                                     <td>{{ user.location.city }}, {{ user.location.state }}</td>
@@ -63,6 +63,6 @@
 
 <!-- Delete user modal -->
 <ua-user-modal
-    *ngIf="userSelected"
-    [user]="userSelected">
+    [user]="userSelected"
+    (userDeleted)="updateUsers()">
 </ua-user-modal>

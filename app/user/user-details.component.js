@@ -22,12 +22,12 @@ var UserDetailsComponent = (function () {
         var userId = this._route.snapshot.params['id'];
         this._userService.getUserById(userId).subscribe(function (user) { return _this.user = user; });
     };
-    UserDetailsComponent.prototype.removeUser = function () {
-        var _this = this;
-        this._userService.removeUserById(this.user._id)
-            .subscribe(function (data) {
-            _this._router.navigate(['/users']);
-        });
+    UserDetailsComponent.prototype.showModal = function () {
+        $('#deleteUserModal').modal('show');
+    };
+    UserDetailsComponent.prototype.navigateToUsersList = function () {
+        $('#deleteUserModal').modal('hide');
+        this._router.navigate(['/users']);
     };
     return UserDetailsComponent;
 }());

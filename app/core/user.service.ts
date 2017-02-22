@@ -12,6 +12,7 @@ export class UserService {
     private _usersEndpoint: string = 'http://localhost:4000/api/users';
     private _userEndpoint: string = 'http://localhost:4000/api/user';
     private _users: IUser[];
+    private _userSelected: IUser;
 
     constructor(
         private _http: Http,

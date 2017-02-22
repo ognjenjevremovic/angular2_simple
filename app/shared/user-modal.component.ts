@@ -19,8 +19,7 @@ export class UserModalComponent {
     removeUser(): void {
         this._userService.removeUserById(this.user._id)
             .subscribe(
-                (data) => this.userDeleted.emit()
+                () => this.userDeleted.emit()
             );
     }
-
 }

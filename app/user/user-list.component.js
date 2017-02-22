@@ -28,9 +28,12 @@ var UserListComponent = (function () {
     UserListComponent.prototype.showModal = function (event, user) {
         event.stopPropagation();
         this.userSelected = user;
-        $('#deleteUserModal').modal({
-            show: true
-        });
+        $('#deleteUserModal').modal('show');
+    };
+    UserListComponent.prototype.updateUsers = function () {
+        this.getUsers();
+        this.userSelected = null;
+        $('#deleteUserModal').modal('hide');
     };
     return UserListComponent;
 }());

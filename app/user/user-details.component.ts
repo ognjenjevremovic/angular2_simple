@@ -27,12 +27,12 @@ export class UserDetailsComponent implements OnInit{
         );
     }
 
-    removeUser(): void {
-        this._userService.removeUserById(this.user._id)
-            .subscribe(
-                (data) => {
-                    this._router.navigate(['/users']);
-                }
-            );
+    showModal(): void {
+        $('#deleteUserModal').modal('show');
+    }
+
+    navigateToUsersList(): void {
+        $('#deleteUserModal').modal('hide');
+        this._router.navigate(['/users']);
     }
 }

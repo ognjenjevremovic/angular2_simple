@@ -27,6 +27,7 @@ export class UserListComponent implements OnInit {
             .subscribe(
                 (users: IUser[]) => {
                     this.users = users;
+                    //  ???
                     this.userSelected = this.users[0];
                 },
                 (error: any) => this.errorMessage = error
@@ -36,9 +37,12 @@ export class UserListComponent implements OnInit {
     showModal(event: Event, user: IUser): void {
         event.stopPropagation();
         this.userSelected = user;
-        $('#deleteUserModal').modal({
-            show: true
-        });
+        $('#deleteUserModal').modal('show');
     }
 
+    updateUsers(): void {
+        this.getUsers();
+        this.userSelected = null;
+        $('#deleteUserModal').modal('hide');
+    }
  }
