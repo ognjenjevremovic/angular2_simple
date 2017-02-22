@@ -41,6 +41,12 @@ export class UserService {
             .catch(this.handleError);
     }
 
+    updateUser(user: IUser): Observable<IUser> {
+        return this._http.put(`${this._userEndpoint}/${user._id}`, user)
+                .map((data: Response) => data.json())
+                .catch(this.handleError);
+    }
+
     private handleError(error: Response) {
         return Observable.throw(error.json().error || 'Server error');
     }

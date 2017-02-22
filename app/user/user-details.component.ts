@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { UserService } from '../core/user.service';
 
@@ -16,7 +16,8 @@ export class UserDetailsComponent implements OnInit{
 
     constructor(
         private _route: ActivatedRoute,
-        private _userService: UserService
+        private _userService: UserService,
+        private _router: Router
     ) { }
 
     ngOnInit(): void {
@@ -24,5 +25,15 @@ export class UserDetailsComponent implements OnInit{
         this._userService.getUserById(userId).subscribe(
             (user: IUser) => this.user = user
         );
+    }
+
+    removeUser(): void {
+        this._userService.removeUserById(this.user._id)
+            .subscribe(
+                (data) => {
+                    console.log(data);
+                    this._router.navigate(['/users']);
+                }
+            );
     }
 }

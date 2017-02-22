@@ -11,36 +11,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var user_service_1 = require("../core/user.service");
-var UserDetailsComponent = (function () {
-    function UserDetailsComponent(_route, _userService, _router) {
-        this._route = _route;
+var EditUserComponent = (function () {
+    function EditUserComponent(_userService, _route, _router) {
         this._userService = _userService;
+        this._route = _route;
         this._router = _router;
     }
-    UserDetailsComponent.prototype.ngOnInit = function () {
+    EditUserComponent.prototype.ngOnInit = function () {
         var _this = this;
         var userId = this._route.snapshot.params['id'];
-        this._userService.getUserById(userId).subscribe(function (user) { return _this.user = user; });
-    };
-    UserDetailsComponent.prototype.removeUser = function () {
-        var _this = this;
-        this._userService.removeUserById(this.user._id)
-            .subscribe(function (data) {
-            console.log(data);
-            _this._router.navigate(['/users']);
+        this._userService.getUserById(userId)
+            .subscribe(function (user) {
+            _this.username = Object.assign({}, user.name);
+            _this.user = user;
         });
     };
-    return UserDetailsComponent;
+    EditUserComponent.prototype.updateUser = function () {
+        var _this = this;
+        this._userService.updateUser(this.user)
+            .subscribe(function (data) { return _this._router.navigate(['/users']); }, function (err) { return _this.errorMessage = err; });
+    };
+    return EditUserComponent;
 }());
-UserDetailsComponent = __decorate([
+EditUserComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        templateUrl: 'user-details.component.html',
-        styleUrls: ['user-details.component.css']
+        templateUrl: 'user-edit.component.html'
     }),
-    __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        user_service_1.UserService,
+    __metadata("design:paramtypes", [user_service_1.UserService,
+        router_1.ActivatedRoute,
         router_1.Router])
-], UserDetailsComponent);
-exports.UserDetailsComponent = UserDetailsComponent;
-//# sourceMappingURL=user-details.component.js.map
+], EditUserComponent);
+exports.EditUserComponent = EditUserComponent;
+//# sourceMappingURL=user-edit.component.js.map

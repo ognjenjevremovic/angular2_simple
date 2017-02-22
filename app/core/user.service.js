@@ -39,6 +39,11 @@ var UserService = (function () {
             .map(function (data) { return data.json().user; })
             .catch(this.handleError);
     };
+    UserService.prototype.updateUser = function (user) {
+        return this._http.put(this._userEndpoint + "/" + user._id, user)
+            .map(function (data) { return data.json(); })
+            .catch(this.handleError);
+    };
     UserService.prototype.handleError = function (error) {
         return Observable_1.Observable.throw(error.json().error || 'Server error');
     };

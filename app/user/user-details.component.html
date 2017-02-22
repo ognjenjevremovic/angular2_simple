@@ -2,13 +2,13 @@
 <header id="header">
     <div class="container">
         <div class="row">
-            <div class="col-xs-10">
+            <div class="col-xs-9">
                 <h1>
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                     Users <small>All Users</small>
                 </h1>
             </div>
-            <div class="col-xs-2">
+            <div class="col-xs-3">
                 <div class="dropdown create">
                     <button class="btn btn-default" type="button" [routerLink]="['/adduser']">
                         Add new user
@@ -30,7 +30,7 @@
                     <!-- Panel Heading -->
                     <div class="panel-heading main-color-bg">
                         <h1 class="panel-title text-center">
-                            <strong>Users</strong>
+                            <strong>{{ user.name.first }} {{ user.name.last }}</strong>
                         </h1>
                     </div>
                     <!-- Panel Body -->
@@ -92,6 +92,19 @@
                                 <p>
                                     {{ user.bio }}
                                 </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Panel Footer -->
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-xs-6 col-xs-push-3">
+                                <button type="button" class="btn btn btn-primary col-xs-6" [routerLink]="['/edituser', user._id]">
+                                    Edit User
+                                </button>
+                                <button type="button" class="btn btn btn-danger col-xs-6" (click)="removeUser()">
+                                    Delete User
+                                </button>
                             </div>
                         </div>
                     </div>

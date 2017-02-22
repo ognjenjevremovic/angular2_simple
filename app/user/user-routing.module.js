@@ -10,6 +10,7 @@ var router_1 = require("@angular/router");
 var user_list_component_1 = require("./user-list.component");
 var user_details_component_1 = require("./user-details.component");
 var user_add_component_1 = require("./user-add.component");
+var user_edit_component_1 = require("./user-edit.component");
 var UserRoutingModule = (function () {
     function UserRoutingModule() {
     }
@@ -21,7 +22,8 @@ UserRoutingModule = __decorate([
             router_1.RouterModule.forChild([
                 { path: 'adduser', component: user_add_component_1.AddUserComponent },
                 { path: 'users', component: user_list_component_1.UserListComponent },
-                { path: 'user/:id', component: user_details_component_1.UserDetailsComponent }
+                { path: 'user/:id', component: user_details_component_1.UserDetailsComponent },
+                { path: 'edituser/:id', component: user_edit_component_1.EditUserComponent }
             ])
         ],
         exports: [
