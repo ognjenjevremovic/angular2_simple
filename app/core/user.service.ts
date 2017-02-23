@@ -38,7 +38,7 @@ export class UserService {
 
     addUser(newUser: IUser): Observable<IUser> {
         return this._http.post(`${this._userEndpoint}`, newUser)
-            .map((data: Response) => data.json().user)
+            .map((data: Response) => data.json().user as IUser)
             .catch(this.handleError);
     }
 

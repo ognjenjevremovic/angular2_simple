@@ -21,7 +21,6 @@ var AddUserComponent = (function () {
     };
     AddUserComponent.prototype.resetUser = function () {
         this.user = {
-            _id: '',
             name: {
                 first: '',
                 last: ''

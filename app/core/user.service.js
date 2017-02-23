@@ -13,6 +13,7 @@ var http_1 = require("@angular/http");
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
+require("rxjs/add/operator/do");
 var UserService = (function () {
     function UserService(_http) {
         this._http = _http;
@@ -37,6 +38,7 @@ var UserService = (function () {
     UserService.prototype.addUser = function (newUser) {
         return this._http.post("" + this._userEndpoint, newUser)
             .map(function (data) { return data.json().user; })
+            .do(function (data) { return console.log(data); })
             .catch(this.handleError);
     };
     UserService.prototype.updateUser = function (user) {

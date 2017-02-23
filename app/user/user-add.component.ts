@@ -19,7 +19,6 @@ export class AddUserComponent implements OnInit {
 
     resetUser(): void {
         this.user = {
-            _id: '',
             name: {
                 first: '',
                 last: ''
